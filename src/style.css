@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.h3m {
+  @apply text-center text-3xl font-bold;
+}
+
+.s-nav-i {
+  @apply p-5 font-semibold lg:w-36 lg:rounded-lg lg:bg-transparent lg:p-1 lg:text-center lg:transition-all lg:hover:scale-105 lg:hover:bg-blue-900;
+}
+
+.sslide-in {
+  @apply -translate-x-full;
+}
+.sslide-in-1 {
+  @apply translate-x-0;
+}
+
+.sfade-in {
+  @apply opacity-0;
+}
+.sfade-in-1 {
+  @apply opacity-100;
+}
+.anim-nav-1 {
+  @apply scale-100;
+}
