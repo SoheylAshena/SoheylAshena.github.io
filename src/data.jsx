@@ -36,7 +36,7 @@ const data = {
         id: "p-3",
         page: "https://SoheylAshena.github.io/Tic-Tac-Toe",
         source: "https://github.com/SoheylAshena/Tic-Tac-Toe",
-        img: "todo.png",
+        img: "tic.png",
       },
     ],
   },
