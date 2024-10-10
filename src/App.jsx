@@ -8,9 +8,11 @@ import Skills from "./Components/Skills";
 import Work from "./Components/Work";
 import Contact from "./Components/Contact";
 import data from "./data";
+import { h1 } from "framer-motion/client";
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState("Home");
+  const [loading, setLoading] = useState(true);
   const location = useLocation();
 
   const pageVariants = {
@@ -24,22 +26,61 @@ const App = () => {
   const renderSection = () => {
     switch (currentSection) {
       case "Home":
-        return <Main data={data} loading={false} />;
+        return (
+          <Main
+            data={data}
+            onLoad={() => setLoading(false)}
+            loading={loading}
+          />
+        );
       case "Skills":
-        return <Skills data={data} />;
+        return (
+          <Skills
+            data={data}
+            onLoad={() => setLoading(false)}
+            loading={loading}
+          />
+        );
       case "Work":
-        return <Work data={data} />;
+        return (
+          <Work
+            data={data}
+            onLoad={() => setLoading(false)}
+            loading={loading}
+          />
+        );
       case "Contact":
-        return <Contact data={data} />;
+        return (
+          <Contact
+            data={data}
+            onLoad={() => setLoading(false)}
+            loading={loading}
+          />
+        );
       default:
-        return <Main data={data} loading={false} />;
+        return (
+          <Main
+            data={data}
+            onLoad={() => setLoading(false)}
+            loading={loading}
+          />
+        );
     }
+  };
+
+  const handleSectionChange = (section) => {
+    if (currentSection == section) {
+      return;
+    }
+    setLoading(true);
+    setCurrentSection(section);
   };
 
   return (
     <div>
       <Background />
-      <Nav setCurrentSection={setCurrentSection} />
+      <Nav setCurrentSection={handleSectionChange} />
+      {loading && <div className="fixed">Loading...</div>}
       <AnimatePresence mode="wait">
         <motion.div
           key={location.pathname + currentSection}

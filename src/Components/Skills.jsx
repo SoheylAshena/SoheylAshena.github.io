@@ -11,7 +11,11 @@ function Skills(props) {
   });
 
   return (
-    <div id="skills" className="container">
+    <div
+      id="skills"
+      className={`container ${props.loading ? "hidden" : ""}`}
+      onLoad={props.onLoad}
+    >
       <div id="skill" className="skill-container">
         {skill}
       </div>

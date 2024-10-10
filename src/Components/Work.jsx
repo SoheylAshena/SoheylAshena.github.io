@@ -21,7 +21,7 @@ function Work(props) {
   });
 
   return (
-    <div className="container" id="work">
+    <div className="container" id="work" onLoad={props.onLoad}>
       <div className="work-container">{project}</div>
     </div>
   );

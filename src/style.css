@@ -76,7 +76,7 @@ html {
 .work-container {
   @apply mx-auto flex max-w-7xl flex-wrap justify-around;
   > div {
-    @apply my-10 my-3 flex flex-col items-center rounded-lg bg-blue-950 shadow-lg shadow-blue-950/70 transition-all hover:scale-105;
+    @apply my-10 mb-5 flex flex-col items-center rounded-lg bg-blue-950 shadow-lg shadow-blue-950/70 transition-all hover:scale-105;
     > h4 {
       @apply p-5 text-2xl font-bold text-white;
     }
