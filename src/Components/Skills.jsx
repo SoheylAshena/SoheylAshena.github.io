@@ -13,7 +13,7 @@ function Skills(props) {
   return (
     <div
       id="skills"
-      className={`container ${props.loading ? "hidden" : ""}`}
+      className={`container ${props.loading ? "opacity-0" : ""}`}
       onLoad={props.onLoad}
     >
       <div id="skill" className="skill-container">
