@@ -6,7 +6,7 @@ const data = {
 
   skills: {
     skill: [
-      { img: "html.webp", name: "HTML", id: "s-1" },
+      { img: "html.png", name: "HTML", id: "s-1" },
       { img: "css.png", name: "CSS", id: "s-2" },
       { img: "js.png", name: "JavaScript", id: "s-3" },
       { img: "react.png", name: "React", id: "s-4" },
@@ -20,23 +20,23 @@ const data = {
       {
         name: "Portfolio",
         id: "p-1",
-        page: "https://SoheylAshena.github.io/portfolio",
-        source: "https://github.com/SoheylAshena/portfolio",
-        img: "Page.png",
+        page: "https://SoheylAshena.github.io",
+        source: "https://github.com/SoheylAshena/SoheylAshena.github.io",
+        img: "Page.jpg",
       },
       {
         name: "To-Do list",
         id: "p-2",
         page: "https://SoheylAshena.github.io/TooDoo",
         source: "https://github.com/SoheylAshena/TooDoo",
-        img: "todo.png",
+        img: "todo.jpg",
       },
       {
         name: "Tic-Tac-Toe",
         id: "p-3",
         page: "https://SoheylAshena.github.io/Tic-Tac-Toe",
         source: "https://github.com/SoheylAshena/Tic-Tac-Toe",
-        img: "tic.png",
+        img: "tic.jpg",
       },
     ],
   },

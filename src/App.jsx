@@ -24,7 +24,7 @@ const App = () => {
   const renderSection = () => {
     switch (currentSection) {
       case "Home":
-        return <Main data={data} loading={false} />;
+        return <Main data={data} />;
       case "Skills":
         return <Skills data={data} />;
       case "Work":
@@ -32,14 +32,21 @@ const App = () => {
       case "Contact":
         return <Contact data={data} />;
       default:
-        return <Main data={data} loading={false} />;
+        return <Main data={data} />;
     }
+  };
+
+  const handleSectionChange = (section) => {
+    if (currentSection == section) {
+      return;
+    }
+    setCurrentSection(section);
   };
 
   return (
     <div>
       <Background />
-      <Nav setCurrentSection={setCurrentSection} />
+      <Nav setCurrentSection={handleSectionChange} />
       <AnimatePresence mode="wait">
         <motion.div
           key={location.pathname + currentSection}
