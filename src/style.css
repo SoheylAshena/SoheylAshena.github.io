@@ -33,6 +33,12 @@ html {
 }
 .profile-img {
   @apply relative mx-auto block w-64 rounded-full transition-all hover:scale-105 md:order-2 md:mx-2 md:my-0 md:h-96 md:w-96;
+  > img {
+    @apply rounded-full;
+  }
+}
+.momo {
+  @apply h-[16.3rem] w-[16.3rem] md:h-[24.5rem] md:w-[24.5rem];
 }
 
 .main-title {

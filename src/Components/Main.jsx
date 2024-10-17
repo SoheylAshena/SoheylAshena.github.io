@@ -1,6 +1,17 @@
 import Typing from "./Typing";
 import { motion } from "framer-motion";
 
+const styleVariant = {
+  content: "",
+  background: "repeating-conic-gradient(from 0deg, #ffffff00 80%, #fff )",
+  position: "absolute",
+  borderRadius: "50%",
+  top: "50%",
+  left: "50%",
+  translate: "-50% -50%",
+  zIndex: -1,
+};
+
 function Main(props) {
   const data = props.data;
   const texts = [
@@ -19,7 +30,23 @@ function Main(props) {
           {data.soheyl.description}
         </p>
       </div>
-      <img className="profile-img" src="pic.jpg" alt="Avatar" />
+      <div className="profile-img">
+        <img src="pic.jpg" alt="Avatar" />
+        <motion.div
+          className="momo"
+          style={styleVariant}
+          initial={{ rotate: 0 }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        ></motion.div>
+        <motion.div
+          style={styleVariant}
+          className="momo"
+          initial={{ rotate: 0 }}
+          animate={{ rotate: -360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        ></motion.div>
+      </div>
     </div>
   );
 }
