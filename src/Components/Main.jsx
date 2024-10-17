@@ -19,19 +19,7 @@ function Main(props) {
           {data.soheyl.description}
         </p>
       </div>
-
-      <div className="motion-container">
-        <motion.div
-          style={{
-            backgroundImage:
-              "conic-gradient(from 0deg, #ffffff,#ffffff00, #ffffff,#ffffff00, #ffffff,#ffffff00,#ffffff,#ffffff00,#ffffff,#ffffff00,#ffffff,#ffffff00,#ffffff)",
-          }}
-          initial={{ rotate: 0 }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-        ></motion.div>
-        <img src="pic.jpg" alt="Avatar" />
-      </div>
+      <img className="profile-img" src="pic.jpg" alt="Avatar" />
     </div>
   );
 }

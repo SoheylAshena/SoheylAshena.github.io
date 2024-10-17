@@ -5,6 +5,8 @@ export default {
     extend: {
       fontFamily: {
         Roboto: ["Roboto", "sans-serif"],
+        Yesteryear: ["Yesteryear", "cursive"],
+        Imperial: ["Imperial Script", "cursive"],
       },
       keyframes: {},
       animation: {},

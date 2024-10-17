@@ -22,7 +22,7 @@ function Work(props) {
 
   return (
     <div className="container" id="work">
-      <div className="work-container">{project}</div>
+      <div className="work-container md:work-container-md">{project}</div>
     </div>
   );
 }
