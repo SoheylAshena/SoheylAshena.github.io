@@ -13,7 +13,6 @@ const Typing = (props) => {
       backDelay: 1000,
       loop: false,
     });
-
     return () => {
       typed.destroy();
     };

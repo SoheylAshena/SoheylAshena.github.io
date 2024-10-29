@@ -7,7 +7,7 @@ html {
   @apply m-0 box-border p-0 font-Roboto;
 }
 .container {
-  @apply max-w-full p-5 md:mx-auto md:mt-10 md:h-screen md:max-w-7xl;
+  @apply w-full p-5 md:mx-auto md:mt-10 md:h-screen md:max-w-7xl;
 }
 .title {
   @apply my-5 text-center text-3xl font-bold md:mx-auto md:my-12 md:max-w-7xl md:text-left md:text-6xl;
@@ -97,4 +97,26 @@ html {
       }
     }
   }
+}
+
+/* Contact.jsx */
+
+.form {
+  @apply mx-auto flex flex-col text-blue-950 md:w-[500px];
+}
+.label {
+  @apply mt-[10px] font-bold text-white;
+}
+.input {
+  @apply mt-[5px] rounded-lg border-none p-[10px] outline-none;
+}
+
+.button {
+  @apply mt-[20px] rounded-lg bg-blue-800 p-[10px] text-white;
+}
+.success {
+  @apply mt-3 text-center text-green-400;
+}
+.error {
+  @apply mt-3 text-center text-red-500;
 }
