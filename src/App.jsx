@@ -8,9 +8,12 @@ import Skills from "./Components/Skills";
 import Work from "./Components/Work";
 import Contact from "./Components/Contact";
 import data from "./data";
+import Loading from "./Loading";
+import { section } from "framer-motion/client";
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState("Home");
+  const [load, setLoad] = useState(true);
   const location = useLocation();
 
   const pageVariants = {
@@ -41,6 +44,9 @@ const App = () => {
       return;
     }
     setCurrentSection(section);
+    if (section !== "Contact") {
+      setLoad(true);
+    }
   };
 
   return (
@@ -48,13 +54,16 @@ const App = () => {
       <Background />
       <Nav setCurrentSection={handleSectionChange} />
       <AnimatePresence mode="wait">
+        {load === true && <Loading />}
         <motion.div
           key={location.pathname + currentSection}
           initial="initial"
-          animate="in"
+          whileInView="in"
           exit="out"
           variants={pageVariants}
           transition={pageTransition}
+          onLoad={() => setLoad(false)}
+          className={load === false ? "block" : "hidden"}
         >
           {renderSection()}
         </motion.div>

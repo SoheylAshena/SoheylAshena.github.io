@@ -19,7 +19,7 @@ const Nav = ({ setCurrentSection }) => {
     <header className="mx-auto max-w-7xl bg-transparent text-white">
       <div className="mx-auto flex items-center justify-between p-5 md:p-8">
         <div
-          className={`font-Imperial relative z-20 text-4xl font-bold md:text-6xl ${isMobileMenuOpen && window.innerWidth < 768 ? "" : "text-yellow-400"}`}
+          className={`relative z-20 font-Imperial text-4xl font-bold md:text-6xl ${isMobileMenuOpen && window.innerWidth < 768 ? "" : "text-yellow-400"}`}
         >
           Soheyl
         </div>
