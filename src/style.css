@@ -4,12 +4,12 @@
 
 /* Global */
 html {
-  @apply m-0 box-border p-0 font-Roboto;
+  @apply m-0 box-border bg-black p-0 font-Roboto;
 }
 .container {
-  @apply w-full p-5 md:mx-auto md:mt-10 md:h-screen md:max-w-7xl;
+  @apply w-full p-5 md:mx-auto md:max-w-7xl;
 }
-.title {
+/* .title {
   @apply my-5 text-center text-3xl font-bold md:mx-auto md:my-12 md:max-w-7xl md:text-left md:text-6xl;
 }
 .description {
@@ -17,15 +17,15 @@ html {
 }
 .distance {
   @apply h-16 md:h-24;
-}
+} */
 
 /* Background.jsx */
-.background {
+/* .background {
   @apply fixed -z-50 h-screen w-full bg-gradient-to-tr from-black to-blue-950;
-}
+} */
 
 /* Main.jsx */
-.main-container {
+/* .main-container {
   @apply flex flex-col md:mt-40 md:flex-row md:justify-between;
 }
 .text-container {
@@ -49,7 +49,7 @@ html {
 }
 .main-desc {
   @apply m-0 my-5 text-justify transition-all hover:-translate-y-1 md:m-5 md:w-[40rem] md:text-xl;
-}
+} */
 
 /* Nav.jsx */
 .nav-item {
@@ -60,7 +60,7 @@ html {
 }
 
 /* Skills.jsx */
-.skill-container {
+/* .skill-container {
   @apply flex flex-wrap justify-around;
 }
 .software {
@@ -71,10 +71,10 @@ html {
   p {
     @apply m-2 font-bold md:text-2xl;
   }
-}
+} */
 
 /* Work.jsx */
-.work-container {
+/* .work-container {
   @apply mx-auto flex max-w-7xl flex-wrap justify-around;
   > div {
     @apply my-10 mb-5 flex flex-col items-center rounded-lg bg-blue-950 shadow-lg shadow-blue-950/70 transition-all hover:scale-105;
@@ -97,11 +97,11 @@ html {
       }
     }
   }
-}
+} */
 
 /* Contact.jsx */
 
-.form {
+/* .form {
   @apply mx-auto flex flex-col text-blue-950 md:w-[500px];
 }
 .label {
@@ -119,4 +119,4 @@ html {
 }
 .error {
   @apply mt-3 text-center text-red-500;
-}
+} */

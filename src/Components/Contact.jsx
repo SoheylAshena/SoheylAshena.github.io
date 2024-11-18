@@ -1,6 +1,7 @@
 // ContactForm.js
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   // return <div>Hello</div>;
@@ -31,22 +32,101 @@ const Contact = () => {
       });
   };
   return (
-    <div className="container" id="contact">
-      <form ref={form} onSubmit={sendEmail} className="form">
-        <label className="label">Name</label>
-        <input className="input" type="text" name="from_name" required />
-        <label className="label">Email</label>
-        <input className="input" type="email" name="from_email" required />
-        <label className="label">Message</label>
-        <textarea className="input min-h-36" name="message" required></textarea>
-        <button className="button" type="submit" disabled={isSending}>
-          {isSending ? "Sending..." : "Send Message"}
-        </button>
-        {isSent && (
-          <p className="success">Your message was sent successfully!</p>
-        )}
-        {error && <p className="error"> {error}</p>}
-      </form>
+    <div className="container mx-auto px-6 py-20" id="contact">
+      <motion.div
+        className="mb-12 text-center"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <h2 className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-6xl font-extrabold text-transparent">
+          Get in Touch
+        </h2>
+        <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-400">
+          Reach out, and I’ll get back to you as soon as possible. Feel free to
+          drop a message.
+        </p>
+      </motion.div>
+
+      <motion.form
+        ref={form}
+        onSubmit={sendEmail}
+        className="mx-auto max-w-2xl rounded-3xl border-4 border-transparent bg-gradient-to-tr from-purple-600 to-pink-500 bg-clip-border shadow-lg"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="h-full w-full rounded-3xl bg-gray-900 p-3 md:p-14">
+          <div className="relative mb-8">
+            <input
+              className="peer w-full rounded-xl border border-gray-700 bg-gray-900 p-4 text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+              type="text"
+              name="from_name"
+              placeholder="Fullname"
+              required
+            />
+          </div>
+
+          <div className="relative mb-8">
+            <input
+              className="peer w-full rounded-xl border border-gray-700 bg-gray-900 p-4 text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+              type="email"
+              name="from_email"
+              placeholder="E-mail"
+              required
+            />
+          </div>
+
+          <div className="relative mb-8">
+            <textarea
+              className="peer w-full rounded-xl border border-gray-700 bg-gray-900 p-4 text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+              name="message"
+              rows="6"
+              placeholder="Your message"
+              required
+            ></textarea>
+          </div>
+
+          <motion.button
+            className="w-full rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl disabled:cursor-not-allowed disabled:opacity-50"
+            type="submit"
+            disabled={isSending}
+            whileHover={{ scale: 1.05 }}
+          >
+            {isSending ? (
+              <span className="flex items-center justify-center">
+                <span className="mr-2 animate-spin text-white">⏳</span>{" "}
+                Sending...
+              </span>
+            ) : (
+              "Send Message"
+            )}
+          </motion.button>
+
+          {isSent && (
+            <motion.div
+              className="mt-6 text-center text-lg text-green-400"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="mr-2 text-2xl">✅</span>Your message was sent
+              successfully!
+            </motion.div>
+          )}
+          {error && (
+            <motion.div
+              className="mt-6 text-center text-lg text-red-500"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="mr-2 text-2xl">❌</span>
+              {error}
+            </motion.div>
+          )}
+        </div>
+      </motion.form>
     </div>
   );
 };
