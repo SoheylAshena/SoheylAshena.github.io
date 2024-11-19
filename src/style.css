@@ -4,12 +4,15 @@
 
 /* Global */
 html {
-  @apply m-0 box-border overflow-x-hidden bg-black p-0 font-Roboto;
+  @apply m-0 box-border p-0 font-Roboto;
   user-select: none;
+}
+body {
+  @apply bg-black;
 }
 
 .container {
-  @apply w-full p-5 md:mx-auto md:max-w-7xl;
+  @apply mx-auto w-full max-w-7xl p-5;
 }
 
 /* Background.jsx */

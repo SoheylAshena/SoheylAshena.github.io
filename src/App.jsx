@@ -50,23 +50,25 @@ const App = () => {
 
   return (
     <div>
-      <Background />
-      <Nav setCurrentSection={handleSectionChange} />
-      <AnimatePresence mode="wait">
-        {load === true && <Loading />}
-        <motion.div
-          key={location.pathname + currentSection}
-          initial="initial"
-          whileInView="in"
-          exit="out"
-          variants={pageVariants}
-          transition={pageTransition}
-          onLoad={() => setLoad(false)}
-          className={load === false ? "block" : "hidden"}
-        >
-          {renderSection()}
-        </motion.div>
-      </AnimatePresence>
+      <Background></Background>
+      <div className="relative left-0 top-0 min-h-screen w-full overflow-hidden">
+        <Nav setCurrentSection={handleSectionChange} />
+        <AnimatePresence mode="wait">
+          {load === true && <Loading />}
+          <motion.div
+            key={location.pathname + currentSection}
+            initial="initial"
+            whileInView="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+            onLoad={() => setLoad(false)}
+            className={load === false ? "block" : "hidden"}
+          >
+            {renderSection()}
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </div>
   );
 };

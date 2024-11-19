@@ -4,19 +4,19 @@ import { motion } from "framer-motion";
 function Main({ data }) {
   const texts = [
     "Hello, World!",
-    `I am <span style="color: #facc15;">Soheyl Ashena.</span>`,
+    `I am <span style="color: #facc15;">Soheyl.</span>`,
   ];
 
   return (
     <div
-      className="container mt-10 flex flex-col items-center md:mt-36 md:flex-row md:justify-around"
+      className="container flex flex-col items-center justify-between md:mt-36 md:flex-row"
       id="soheyl"
     >
       {/* Profile Section */}
-      <div className="relative order-1 mb-10 flex items-center justify-center md:order-2">
+      <div className="relative order-1 my-10 flex h-64 w-64 items-center justify-center md:order-2 md:h-80 md:w-80">
         {/* Dynamic Outer Glow Rings */}
         <motion.div
-          className="absolute h-[400px] w-[400px] animate-pulse rounded-full"
+          className="absolute h-[400px] w-[400px] animate-pulse"
           style={{
             border: "2px solid transparent",
             borderImage:
@@ -30,9 +30,8 @@ function Main({ data }) {
             ease: "linear",
           }}
         />
-
         <motion.div
-          className="absolute h-[300px] w-[300px] rounded-full border-2 border-gray-700/50"
+          className="absolute h-[300px] w-[300px] border-2 border-gray-700/50"
           style={{
             borderImage: "conic-gradient(from 0deg, #ffffff10 50%, #ffffff05)",
             borderImageSlice: 1,
@@ -44,12 +43,11 @@ function Main({ data }) {
             ease: "linear",
           }}
         />
-
         {/* Profile Image */}
         <motion.img
           src="pic.jpg"
           alt="Avatar"
-          className="relative z-10 h-64 w-64 rounded-full shadow-lg md:h-80 md:w-80"
+          className="absolute rounded-full shadow-lg"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
@@ -57,16 +55,15 @@ function Main({ data }) {
       </div>
 
       {/* Content Section */}
-      <div className="z-10 order-2 text-center md:order-1 md:text-left">
+      <div className="order-2 text-center md:order-1 md:text-left">
         <motion.h1
-          className="mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent md:text-5xl"
+          className="mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           <Typing data={texts} />
         </motion.h1>
-
         <motion.h3
           className="mb-4 text-xl font-medium text-gray-300 md:text-2xl"
           initial={{ opacity: 0, y: 20 }}
@@ -75,10 +72,9 @@ function Main({ data }) {
         >
           Front-End Developer
         </motion.h3>
-
         <motion.p
           id="soheyl-desc"
-          className="mx-auto max-w-xl text-sm text-gray-400 md:text-lg"
+          className="max-w-xl text-sm text-gray-400 md:text-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
