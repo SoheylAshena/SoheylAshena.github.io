@@ -62,7 +62,7 @@ const Contact = () => {
               className="peer w-full rounded-xl border border-gray-700 bg-gray-900 p-4 text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
               type="text"
               name="from_name"
-              placeholder="Fullname"
+              placeholder="Your beautiful name"
               required
             />
           </div>
@@ -72,7 +72,7 @@ const Contact = () => {
               className="peer w-full rounded-xl border border-gray-700 bg-gray-900 p-4 text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
               type="email"
               name="from_email"
-              placeholder="E-mail"
+              placeholder="Your E-mail"
               required
             />
           </div>
@@ -82,7 +82,7 @@ const Contact = () => {
               className="peer w-full rounded-xl border border-gray-700 bg-gray-900 p-4 text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
               name="message"
               rows="6"
-              placeholder="Your message"
+              placeholder="Tell me, I am all ears..."
               required
             ></textarea>
           </div>

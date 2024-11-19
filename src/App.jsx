@@ -9,7 +9,6 @@ import Work from "./Components/Work";
 import Contact from "./Components/Contact";
 import data from "./data";
 import Loading from "./Loading";
-import { section } from "framer-motion/client";
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState("Home");

@@ -27,9 +27,10 @@ function Main({ data }) {
           transition={{
             duration: 12,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: "linear",
           }}
         />
+
         <motion.div
           className="absolute h-[300px] w-[300px] rounded-full border-2 border-gray-700/50"
           style={{
@@ -48,7 +49,7 @@ function Main({ data }) {
         <motion.img
           src="pic.jpg"
           alt="Avatar"
-          className="relative z-10 h-80 w-80 rounded-full shadow-lg"
+          className="relative z-10 h-64 w-64 rounded-full shadow-lg md:h-80 md:w-80"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
@@ -58,24 +59,26 @@ function Main({ data }) {
       {/* Content Section */}
       <div className="z-10 order-2 text-center md:order-1 md:text-left">
         <motion.h1
-          className="mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-6xl"
+          className="mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent md:text-5xl"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           <Typing data={texts} />
         </motion.h1>
+
         <motion.h3
-          className="mb-4 text-xl font-medium text-gray-300 sm:text-2xl"
+          className="mb-4 text-xl font-medium text-gray-300 md:text-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
           Front-End Developer
         </motion.h3>
+
         <motion.p
           id="soheyl-desc"
-          className="mx-auto max-w-xl px-4 text-sm text-gray-400 sm:text-lg"
+          className="mx-auto max-w-xl text-sm text-gray-400 md:text-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}

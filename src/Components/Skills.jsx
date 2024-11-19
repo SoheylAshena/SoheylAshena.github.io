@@ -35,7 +35,7 @@ function Skills({ data }) {
         {data.skills.skill.map((item, index) => (
           <motion.div
             key={item.id}
-            className="group relative flex transform flex-col items-center justify-center rounded-xl border border-white/10 bg-transparent p-6 transition-all duration-300 hover:scale-105 hover:border-pink-500"
+            className="group relative flex transform flex-col items-center justify-center rounded-xl border-2 border-white/10 bg-transparent p-6 transition-all duration-300 hover:scale-105 hover:border-pink-500"
             variants={{
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0 },
