@@ -39,10 +39,10 @@ const Contact = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-6xl font-extrabold text-transparent">
+        <h2 className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-6xl font-extrabold text-transparent dark:from-yellow-400 dark:to-yellow-600">
           Get in Touch
         </h2>
-        <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-400">
+        <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600 dark:text-gray-400">
           Reach out, and I’ll get back to you as soon as possible. Feel free to
           drop a message.
         </p>
@@ -56,10 +56,10 @@ const Contact = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <div className="h-full w-full rounded-3xl bg-gray-900 p-3 md:p-14">
+        <div className="h-full w-full rounded-3xl bg-purple-100 p-3 md:p-14 dark:bg-gray-900">
           <div className="relative mb-8">
             <input
-              className="peer w-full rounded-xl border border-gray-700 bg-gray-900 p-4 text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+              className="peer w-full rounded-xl border bg-white p-4 text-white outline-none transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-offset-gray-800"
               type="text"
               name="from_name"
               placeholder="Your beautiful name"
@@ -69,7 +69,7 @@ const Contact = () => {
 
           <div className="relative mb-8">
             <input
-              className="peer w-full rounded-xl border border-gray-700 bg-gray-900 p-4 text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+              className="peer w-full rounded-xl border bg-white p-4 text-white outline-none transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-offset-gray-800"
               type="email"
               name="from_email"
               placeholder="Your E-mail"
@@ -79,7 +79,7 @@ const Contact = () => {
 
           <div className="relative mb-8">
             <textarea
-              className="peer w-full rounded-xl border border-gray-700 bg-gray-900 p-4 text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+              className="peer w-full rounded-xl border bg-white p-4 text-white outline-none transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-offset-gray-800"
               name="message"
               rows="6"
               placeholder="Tell me, I am all ears..."

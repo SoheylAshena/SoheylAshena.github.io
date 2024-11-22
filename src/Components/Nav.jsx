@@ -1,10 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { motion } from "framer-motion";
 
 const Nav = ({ setCurrentSection }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
+  const [isDark, setIsDark] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (isDark) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
+
+  const toggleDark = () => {
+    setIsDark((prev) => !prev);
+  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -19,14 +37,13 @@ const Nav = ({ setCurrentSection }) => {
   };
 
   return (
-    <header className="relative top-0 z-30 bg-transparent text-white">
+    <header className="relative top-0 z-30 text-gray-800 transition-all duration-300 dark:bg-transparent dark:text-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
         {/* Logo */}
-        <div
-          className={`relative z-20 font-Imperial text-5xl tracking-wider transition-all duration-300 hover:text-yellow-400 md:text-6xl`}
-        >
-          <a href="#home" onClick={() => handleLinkClick("Home")}>
-            Soheyl<span className="text-yellow-400">.</span>
+        <div className="relative z-20 font-Imperial text-5xl tracking-wider transition-all duration-300 hover:text-pink-500 md:text-6xl dark:hover:text-yellow-400">
+          <a href="#home" onClick={toggleDark}>
+            Soheyl
+            <span className="text-pink-500 dark:text-yellow-400">.</span>
           </a>
         </div>
 
@@ -39,13 +56,13 @@ const Nav = ({ setCurrentSection }) => {
               onClick={() => handleLinkClick(section)}
               className={`group relative transition-all duration-300 ${
                 activeSection === section
-                  ? "scale-110 text-yellow-400"
-                  : "hover:text-gray-300"
+                  ? "scale-110 text-pink-500 dark:text-yellow-400"
+                  : "hover:text-gray-500 dark:hover:text-gray-300"
               }`}
             >
               {section}
               <span
-                className={`absolute left-0 top-full h-[3px] w-full origin-center scale-x-0 bg-yellow-400 transition-transform duration-300 group-hover:scale-x-100 ${
+                className={`absolute left-0 top-full h-[3px] w-full origin-center scale-x-0 bg-pink-500 transition-transform duration-300 group-hover:scale-x-100 dark:bg-yellow-400 ${
                   activeSection === section ? "scale-x-100" : ""
                 }`}
               ></span>
@@ -60,16 +77,16 @@ const Nav = ({ setCurrentSection }) => {
           aria-label="Toggle Mobile Menu"
         >
           {isMobileMenuOpen ? (
-            <XIcon className="h-8 w-8 text-white" />
+            <XIcon className="h-8 w-8 text-gray-800 dark:text-white" />
           ) : (
-            <MenuIcon className="h-8 w-8 text-white" />
+            <MenuIcon className="h-8 w-8 text-gray-800 dark:text-white" />
           )}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-10 flex h-screen w-full flex-col items-center justify-center bg-black/50 text-center backdrop-blur-xl">
+        <div className="fixed inset-0 z-10 flex h-screen w-full flex-col items-center justify-center bg-white/90 text-center backdrop-blur-md transition-all duration-300 dark:bg-black/50">
           <nav className="flex flex-col items-center space-y-12">
             {["Home", "Skills", "Work", "Contact"].map((section, index) => (
               <motion.a
@@ -79,10 +96,10 @@ const Nav = ({ setCurrentSection }) => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 href={`#${section.toLowerCase()}`}
                 onClick={() => handleLinkClick(section)}
-                className={`text-4xl font-extrabold text-white ease-in-out ${
+                className={`text-4xl font-extrabold text-gray-800 transition-transform ease-in-out dark:text-white ${
                   activeSection === section
-                    ? "scale-110 text-yellow-400"
-                    : "h hover:scale-105"
+                    ? "scale-110 text-pink-500 dark:text-yellow-400"
+                    : "hover:scale-105"
                 }`}
               >
                 {section}

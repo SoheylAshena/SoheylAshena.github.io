@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 function Main({ data }) {
   const texts = [
     "Hello, World!",
-    `I am <span style="color: #facc15;">Soheyl.</span>`,
+    `I am <span class="dark:bg-gradient-to-r dark:from-pink-500 dark:to-purple-600 dark:bg-clip-text dark:text-transparent ">Soheyl.</span>`,
   ];
 
   return (
@@ -31,11 +31,7 @@ function Main({ data }) {
           }}
         />
         <motion.div
-          className="absolute h-[300px] w-[300px] border-2 border-gray-700/50"
-          style={{
-            borderImage: "conic-gradient(from 0deg, #ffffff10 50%, #ffffff05)",
-            borderImageSlice: 1,
-          }}
+          className="absolute h-[300px] w-[300px] border-2 border-gray-200 dark:border-gray-700/50"
           animate={{ rotate: -360 }}
           transition={{
             duration: 18,
@@ -57,7 +53,7 @@ function Main({ data }) {
       {/* Content Section */}
       <div className="order-2 text-center md:order-1 md:text-left">
         <motion.h1
-          className="mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent"
+          className="mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent dark:from-yellow-400 dark:to-yellow-600"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -65,7 +61,7 @@ function Main({ data }) {
           <Typing data={texts} />
         </motion.h1>
         <motion.h3
-          className="mb-4 text-xl font-medium text-gray-300 md:text-2xl"
+          className="mb-4 text-xl font-medium text-gray-700 md:text-2xl dark:text-gray-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -74,7 +70,7 @@ function Main({ data }) {
         </motion.h3>
         <motion.p
           id="soheyl-desc"
-          className="max-w-xl text-sm text-gray-400 md:text-lg"
+          className="max-w-xl text-sm text-gray-600 md:text-lg dark:text-gray-400"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}

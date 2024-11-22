@@ -34,7 +34,7 @@ function Work(props) {
       </div>
 
       {/* Links Section */}
-      <div className="flex items-center justify-between bg-gray-900 p-4">
+      <div className="flex items-center justify-between bg-white p-4 dark:bg-gray-900">
         <a
           href={proj.page}
           target="_blank"
@@ -73,10 +73,10 @@ function Work(props) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-6xl font-extrabold tracking-wide text-transparent">
+        <h2 className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-6xl font-extrabold tracking-wide text-transparent dark:from-yellow-400 dark:to-yellow-600">
           Featured Projects
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
           A curated list of my most remarkable works. Explore the journey and
           creativity!
         </p>
