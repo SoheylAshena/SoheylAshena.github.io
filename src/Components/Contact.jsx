@@ -51,15 +51,15 @@ const Contact = () => {
       <motion.form
         ref={form}
         onSubmit={sendEmail}
-        className="mx-auto max-w-2xl rounded-3xl border-4 border-transparent bg-gradient-to-tr from-purple-600 to-pink-500 bg-clip-border shadow-lg"
+        className="mx-auto max-w-2xl rounded-3xl border-4 border-transparent bg-gradient-to-tr from-purple-600 to-pink-500 bg-clip-border text-purple-900 shadow-lg dark:text-purple-300"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <div className="h-full w-full rounded-3xl bg-purple-100 p-3 md:p-14 dark:bg-gray-900">
+        <div className="h-full w-full rounded-3xl bg-purple-50 p-3 md:p-14 dark:bg-gray-900">
           <div className="relative mb-8">
             <input
-              className="peer w-full rounded-xl border bg-white p-4 text-white outline-none transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-offset-gray-800"
+              className="peer w-full rounded-xl border bg-white p-4 outline-none transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-offset-gray-800"
               type="text"
               name="from_name"
               placeholder="Your beautiful name"
@@ -69,7 +69,7 @@ const Contact = () => {
 
           <div className="relative mb-8">
             <input
-              className="peer w-full rounded-xl border bg-white p-4 text-white outline-none transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-offset-gray-800"
+              className="peer w-full rounded-xl border bg-white p-4 outline-none transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-offset-gray-800"
               type="email"
               name="from_email"
               placeholder="Your E-mail"
@@ -79,7 +79,7 @@ const Contact = () => {
 
           <div className="relative mb-8">
             <textarea
-              className="peer w-full rounded-xl border bg-white p-4 text-white outline-none transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-offset-gray-800"
+              className="peer w-full rounded-xl border bg-white p-4 outline-none transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-offset-gray-800"
               name="message"
               rows="6"
               placeholder="Tell me, I am all ears..."

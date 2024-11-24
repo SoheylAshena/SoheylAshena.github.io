@@ -1,8 +1,49 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 
 function Skills({ data }) {
+  const [isDecOpen, setIsDecOpen] = useState(false);
+  const [currentSkill, setCurrentSkill] = useState(null);
+  const decRef = useRef(null);
+
+  // Open modal with skill data
+  const openDec = (item) => {
+    if (currentSkill?.id === item.id && isDecOpen) {
+      closeDec(); // Close if the same skill is clicked while open
+    } else {
+      setCurrentSkill(item);
+      setIsDecOpen(true);
+    }
+  };
+
+  // Close modal
+  const closeDec = () => {
+    setIsDecOpen(false);
+    setCurrentSkill(null);
+  };
+
+  // Handle clicks outside modal
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (decRef.current && !decRef.current.contains(event.target)) {
+        closeDec();
+      }
+    };
+
+    if (isDecOpen) {
+      document.addEventListener("pointerdown", handleOutsideClick); // Use pointer events
+    }
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsideClick);
+    };
+  }, [isDecOpen]);
+
   return (
-    <div className="container px-6 py-20" id="skills">
+    <div
+      className="container px-6 py-20"
+      id="skills"
+      onClick={() => isDecOpen && closeDec()} // Handle clicks on the background
+    >
       {/* Section Header */}
       <motion.div
         className="mb-16 text-center"
@@ -35,7 +76,7 @@ function Skills({ data }) {
         {data.skills.skill.map((item, index) => (
           <motion.div
             key={item.id}
-            className="group relative flex transform flex-col items-center justify-center rounded-xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:scale-105 hover:border-pink-500 dark:border-white/10 dark:bg-transparent dark:shadow-none"
+            className="group relative flex transform flex-col items-center justify-center rounded-xl border-2 border-gray-300 p-6 transition-all duration-300 hover:scale-105 hover:border-pink-500 dark:border-white/10 dark:bg-transparent dark:shadow-none"
             variants={{
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0 },
@@ -46,6 +87,10 @@ function Skills({ data }) {
             <motion.img
               src={item.img}
               alt={item.name}
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent modal trigger click from bubbling
+                openDec(item);
+              }}
               className="mb-4 h-20 w-20 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_5px_15px_rgba(236,72,153,0.6)]"
               whileHover={{ scale: 1.1 }}
             />
@@ -56,6 +101,36 @@ function Skills({ data }) {
           </motion.div>
         ))}
       </motion.div>
+
+      {/* Dynamic Content Modal */}
+      <AnimatePresence>
+        {isDecOpen && (
+          <motion.div
+            ref={decRef}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed left-1/2 top-1/2 w-[95%] max-w-6xl -translate-x-1/2 -translate-y-1/2 rounded-lg bg-purple-50 p-6 dark:bg-purple-950"
+            onClick={(e) => e.stopPropagation()} // Prevent clicks inside modal from closing it
+          >
+            <button
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent closing on button click
+                closeDec();
+              }}
+              className="absolute right-2 top-2 text-2xl text-gray-500 hover:text-gray-700 dark:text-gray-300"
+            >
+              &times;
+            </button>
+            <h3 className="mb-4 text-xl font-bold text-gray-800 dark:text-gray-100">
+              {currentSkill?.desc?.header}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              {currentSkill?.desc?.desc || "No description available."}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Section Description */}
       <motion.p
