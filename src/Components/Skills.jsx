@@ -105,30 +105,32 @@ function Skills({ data }) {
       {/* Dynamic Content Modal */}
       <AnimatePresence>
         {isDecOpen && (
-          <motion.div
-            ref={decRef}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed left-1/2 top-1/2 w-[95%] max-w-6xl -translate-x-1/2 -translate-y-1/2 rounded-lg bg-purple-50 p-6 dark:bg-purple-950"
-            onClick={(e) => e.stopPropagation()} // Prevent clicks inside modal from closing it
-          >
-            <button
-              onClick={(e) => {
-                e.stopPropagation(); // Prevent closing on button click
-                closeDec();
-              }}
-              className="absolute right-2 top-2 text-2xl text-gray-500 hover:text-gray-700 dark:text-gray-300"
+          <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center">
+            <motion.div
+              ref={decRef}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="bg-purple-00 relative w-[95%] max-w-6xl rounded-lg bg-purple-200 p-6 dark:bg-purple-950"
+              onClick={(e) => e.stopPropagation()} // Prevent clicks inside modal from closing it
             >
-              &times;
-            </button>
-            <h3 className="mb-4 text-xl font-bold text-gray-800 dark:text-gray-100">
-              {currentSkill?.desc?.header}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              {currentSkill?.desc?.desc || "No description available."}
-            </p>
-          </motion.div>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent closing on button click
+                  closeDec();
+                }}
+                className="absolute right-2 top-2 text-2xl text-gray-500 hover:text-gray-700 dark:text-gray-300"
+              >
+                &times;
+              </button>
+              <h3 className="mb-4 text-xl font-bold text-gray-800 dark:text-gray-100">
+                {currentSkill?.desc?.header}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                {currentSkill?.desc?.desc || "No description available."}
+              </p>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
 

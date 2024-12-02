@@ -11,6 +11,7 @@ const Nav = ({ setCurrentSection }) => {
 
   useEffect(() => {
     const root = window.document.documentElement;
+    root.classList.add("dark");
     if (isDark) {
       root.classList.add("dark");
       localStorage.setItem("theme", "dark");

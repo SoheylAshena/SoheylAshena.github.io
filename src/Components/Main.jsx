@@ -16,7 +16,7 @@ function Main({ data }) {
       <div className="relative order-1 my-10 flex h-64 w-64 items-center justify-center md:order-2 md:h-80 md:w-80">
         {/* Dynamic Outer Glow Rings */}
         <motion.div
-          className="absolute z-10 h-[400px] w-[400px] animate-pulse"
+          className="absolute h-[400px] w-[400px] animate-pulse"
           style={{
             border: "2px solid transparent",
             borderImage:

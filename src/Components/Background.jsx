@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
+import Firework from "./Firework";
 function BackGround() {
   return (
     <div className="fixed left-0 top-0 -z-50 h-screen w-full overflow-hidden">
+      <div className="absolute -top-36 md:hidden">
+        <Firework />
+      </div>
       {/* Animated Background Elements */}
       <motion.div
         className="absolute inset-0 z-0 dark:bg-[radial-gradient(circle_at_top,_rgba(255,20,147,0.1),_rgba(30,30,30,1))]"
