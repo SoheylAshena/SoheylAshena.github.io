@@ -18,15 +18,16 @@ const Firework = () => {
     window.addEventListener("resize", resizeCanvas);
 
     const draw = () => {
-      ctx.globalCompositeOperation = "source-over";
-      ctx.fillStyle = "hsla(0,0%,0%,.1)";
+      // Fade out trails by making them disappear slowly
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const foo = Math.sin(t) * 2 * Math.PI;
 
       for (let i = 0; i < 400; ++i) {
         const r = 400 * Math.sin(i * foo);
-        ctx.globalCompositeOperation = "";
+        ctx.globalCompositeOperation = "lighter";
         ctx.fillStyle = `hsla(${i + 12},100%,60%,1)`;
         ctx.beginPath();
         ctx.arc(
@@ -56,7 +57,7 @@ const Firework = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef}></canvas>;
+  return <canvas ref={canvasRef} style={{ display: "block" }}></canvas>;
 };
 
 export default Firework;

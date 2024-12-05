@@ -1,4 +1,5 @@
 import Typing from "./Typing";
+import Firework from "./Firework";
 import { motion } from "framer-motion";
 
 function Main({ data }) {
@@ -43,12 +44,14 @@ function Main({ data }) {
         <motion.img
           src="pic.jpg"
           alt="Avatar"
-          className="absolute rounded-full shadow-lg"
+          className="absolute z-10 rounded-full shadow-lg"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
         />
-        <div className="absolute h-96 w-96 bg-transparent"></div>
+        <div className="opacity-50 md:hidden">
+          <Firework />
+        </div>
       </div>
 
       {/* Content Section */}

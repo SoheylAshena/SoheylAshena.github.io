@@ -94,10 +94,10 @@ const Nav = ({ setCurrentSection }) => {
                 key={section}
                 initial={{ opacity: 0, translateY: 20 }}
                 animate={{ opacity: 1, translateY: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
+                transition={{ delay: index * 0.2 }}
                 href={`#${section.toLowerCase()}`}
                 onClick={() => handleLinkClick(section)}
-                className={`text-4xl font-extrabold text-gray-800 transition-transform ease-in-out dark:text-white ${
+                className={`text-4xl font-extrabold text-gray-800 dark:text-white ${
                   activeSection === section
                     ? "scale-110 text-pink-500 dark:text-yellow-400"
                     : "hover:scale-105"
