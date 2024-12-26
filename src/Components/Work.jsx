@@ -6,7 +6,7 @@ function Work(props) {
   const project = data.projects.project.map((proj, index) => (
     <motion.div
       key={proj.id}
-      className="group relative transform overflow-hidden rounded-xl border-4 border-transparent bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-border shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+      className="group relative overflow-hidden rounded-xl border-4 border-transparent bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-border shadow-lg"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -17,7 +17,7 @@ function Work(props) {
         <img
           src={proj.img}
           alt={proj.name}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <motion.div
           className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -34,7 +34,7 @@ function Work(props) {
       </div>
 
       {/* Links Section */}
-      <div className="flex items-center justify-between bg-white p-4 dark:bg-gray-900">
+      <div className="flex items-center justify-between bg-white p-4 transition-colors duration-500 dark:bg-gray-900">
         <a
           href={proj.page}
           target="_blank"
@@ -76,7 +76,7 @@ function Work(props) {
         <h2 className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-6xl font-extrabold tracking-wide text-transparent dark:from-yellow-400 dark:to-yellow-600">
           Featured Projects
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600 transition-colors duration-500 dark:text-gray-400">
           A curated list of my most remarkable works. Explore the journey and
           creativity!
         </p>

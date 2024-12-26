@@ -8,7 +8,7 @@ html {
   user-select: none;
 }
 body {
-  @apply bg-white transition-all duration-700 dark:bg-black;
+  @apply bg-white dark:bg-black;
 }
 
 .container {

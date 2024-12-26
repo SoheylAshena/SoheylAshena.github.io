@@ -8,7 +8,7 @@ import Skills from "./Components/Skills";
 import Work from "./Components/Work";
 import Contact from "./Components/Contact";
 import data from "./data";
-import Loading from "./Loading";
+import Loading from "./Components/Loading";
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState("Home");

@@ -1,5 +1,5 @@
 import Typing from "./Typing";
-import Firework from "./Firework";
+// import Firework from "./Firework";
 import { motion } from "framer-motion";
 
 function Main({ data }) {
@@ -17,7 +17,16 @@ function Main({ data }) {
       <div className="relative order-1 my-10 flex h-64 w-64 items-center justify-center md:order-2 md:h-80 md:w-80">
         {/* Dynamic Outer Glow Rings */}
         <motion.div
-          className="absolute h-[400px] w-[400px] animate-pulse"
+          className="absolute h-[300px] w-[300px] border-2 border-gray-300 transition-colors duration-500 dark:border-gray-800"
+          animate={{ rotate: -360 }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+        <motion.div
+          className="absolute h-[400px] w-[400px]"
           style={{
             border: "2px solid transparent",
             borderImage:
@@ -31,15 +40,7 @@ function Main({ data }) {
             ease: "linear",
           }}
         />
-        <motion.div
-          className="absolute h-[300px] w-[300px] border-2 border-gray-200 dark:border-gray-700/50"
-          animate={{ rotate: -360 }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
+
         {/* Profile Image */}
         <motion.img
           src="pic.jpg"
@@ -49,9 +50,9 @@ function Main({ data }) {
           animate={{ scale: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
         />
-        <div className="opacity-50 md:hidden">
+        {/* <div className="opacity-50 md:hidden">
           <Firework />
-        </div>
+        </div> */}
       </div>
 
       {/* Content Section */}
@@ -65,7 +66,7 @@ function Main({ data }) {
           <Typing data={texts} />
         </motion.h1>
         <motion.h3
-          className="mb-4 text-xl font-medium text-gray-700 md:text-2xl dark:text-gray-300"
+          className="mb-4 text-xl font-medium text-gray-700 transition-colors duration-500 md:text-2xl dark:text-gray-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -74,7 +75,7 @@ function Main({ data }) {
         </motion.h3>
         <motion.p
           id="soheyl-desc"
-          className="max-w-xl text-sm text-gray-600 md:text-lg dark:text-gray-400"
+          className="max-w-xl text-sm text-gray-600 transition-colors duration-500 md:text-lg dark:text-gray-400"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}

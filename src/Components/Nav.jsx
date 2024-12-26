@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Nav = ({ setCurrentSection }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
   const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
+    localStorage.setItem("theme", "dark");
+    return true;
   });
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.add("dark");
     if (isDark) {
       root.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -38,10 +38,10 @@ const Nav = ({ setCurrentSection }) => {
   };
 
   return (
-    <header className="relative top-0 z-30 text-gray-800 transition-all duration-300 dark:bg-transparent dark:text-white">
+    <header className="relative top-0 z-30 text-gray-800 dark:bg-transparent dark:text-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
         {/* Logo */}
-        <div className="relative z-20 font-Imperial text-5xl tracking-wider transition-all duration-300 hover:text-pink-500 md:text-6xl dark:hover:text-yellow-400">
+        <div className="relative z-20 font-Imperial text-5xl tracking-wider transition-colors duration-500 hover:text-pink-500 md:text-6xl dark:hover:text-yellow-400">
           <a href="#home" onClick={toggleDark}>
             Soheyl
             <span className="text-pink-500 dark:text-yellow-400">.</span>
@@ -55,7 +55,7 @@ const Nav = ({ setCurrentSection }) => {
               key={section}
               href={`#${section.toLowerCase()}`}
               onClick={() => handleLinkClick(section)}
-              className={`group relative transition-all duration-300 ${
+              className={`group relative transition-all duration-500 ${
                 activeSection === section
                   ? "scale-110 text-pink-500 dark:text-yellow-400"
                   : "hover:text-gray-500 dark:hover:text-gray-300"
@@ -86,29 +86,38 @@ const Nav = ({ setCurrentSection }) => {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-10 flex h-screen w-full flex-col items-center justify-center bg-white/90 text-center backdrop-blur-md transition-all duration-300 dark:bg-black/50">
-          <nav className="flex flex-col items-center space-y-12">
-            {["Home", "Skills", "Work", "Contact"].map((section, index) => (
-              <motion.a
-                key={section}
-                initial={{ opacity: 0, translateY: 20 }}
-                animate={{ opacity: 1, translateY: 0 }}
-                transition={{ delay: index * 0.2 }}
-                href={`#${section.toLowerCase()}`}
-                onClick={() => handleLinkClick(section)}
-                className={`text-4xl font-extrabold text-gray-800 dark:text-white ${
-                  activeSection === section
-                    ? "scale-110 text-pink-500 dark:text-yellow-400"
-                    : "hover:scale-105"
-                }`}
-              >
-                {section}
-              </motion.a>
-            ))}
-          </nav>
-        </div>
-      )}
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ translateX: "100%" }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-10 flex h-screen w-full flex-col items-center justify-center bg-white/80 text-center backdrop-blur-md transition-colors duration-500 dark:bg-gray-950/80"
+          >
+            <nav className="flex flex-col items-center space-y-12">
+              {["Home", "Skills", "Work", "Contact"].map((section, index) => (
+                <motion.a
+                  key={section}
+                  initial={{ opacity: 0, translateY: 20 }}
+                  animate={{ opacity: 1, translateY: 0 }}
+                  transition={{ delay: index * 0.2 + 0.3 }}
+                  href={`#${section.toLowerCase()}`}
+                  onClick={() => handleLinkClick(section)}
+                  className={`text-4xl font-extrabold text-gray-800 dark:text-white ${
+                    activeSection === section
+                      ? "scale-110 text-pink-500 dark:text-yellow-400"
+                      : "hover:scale-105"
+                  }`}
+                >
+                  {section}
+                </motion.a>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
