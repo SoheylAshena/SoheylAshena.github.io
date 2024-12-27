@@ -16,16 +16,18 @@ function Work(props) {
         <img
           src={proj.img}
           alt={proj.name}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="h-full w-full object-cover transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-          <div className="absolute bottom-4 left-4 space-y-1 text-white">
-            <h4 className="text-xl font-bold">{proj.name}</h4>
-            <p className="text-sm text-gray-200">
-              {proj.description || "An amazing project to explore!"}
-            </p>
+        <a href={proj.page}>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:bg-gradient-to-b dark:from-transparent dark:to-gray-900">
+            <div className="absolute bottom-4 left-4 space-y-1 text-gray-900 dark:text-white">
+              <h4 className="text-xl font-bold">{proj.name}</h4>
+              <p className="text-sm">
+                {proj.description || "An amazing project to explore!"}
+              </p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       {/* Links Section */}
@@ -38,7 +40,7 @@ function Work(props) {
             View Live
           </span>
           <motion.span
-            className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent"
+            className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text font-bold text-transparent"
             initial={{ x: -5 }}
             animate={{ x: [0, -5, 0] }}
             transition={{ repeat: Infinity, duration: 0.5, ease: "easeInOut" }}
