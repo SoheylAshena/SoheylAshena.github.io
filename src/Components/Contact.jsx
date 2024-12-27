@@ -54,7 +54,7 @@ const Contact = () => {
         className="mx-auto max-w-2xl rounded-3xl border-4 border-transparent bg-gradient-to-tr from-purple-600 to-pink-500 bg-clip-border text-purple-900 shadow-lg transition-colors duration-500 dark:text-purple-300"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
       >
         <div className="h-full w-full rounded-3xl bg-purple-50 p-3 transition-colors duration-500 md:p-14 dark:bg-gray-900">
           <div className="relative mb-8">

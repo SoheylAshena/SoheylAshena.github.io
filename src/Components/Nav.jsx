@@ -6,8 +6,11 @@ const Nav = ({ setCurrentSection }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
   const [isDark, setIsDark] = useState(() => {
-    localStorage.setItem("theme", "dark");
-    return true;
+    if (localStorage.getItem("theme") === null) {
+      return true;
+    } else {
+      return localStorage.getItem("theme") === "dark";
+    }
   });
 
   useEffect(() => {
@@ -93,7 +96,7 @@ const Nav = ({ setCurrentSection }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ translateX: "100%" }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
             className="fixed inset-0 z-10 flex h-screen w-full flex-col items-center justify-center bg-white/80 text-center backdrop-blur-md transition-colors duration-500 dark:bg-gray-950/80"
           >
             <nav className="flex flex-col items-center space-y-12">
