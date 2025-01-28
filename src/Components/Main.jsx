@@ -73,6 +73,7 @@ function Main({ data }) {
         >
           Front-End Developer
         </motion.h3>
+
         <motion.p
           id="soheyl-desc"
           className="max-w-xl text-sm text-gray-600 transition-colors duration-500 md:text-lg dark:text-gray-400"
@@ -82,6 +83,15 @@ function Main({ data }) {
         >
           {data.soheyl.description}
         </motion.p>
+        <motion.a
+          href="https://github.com/SoheylAshena"
+          className="mt-10 block text-xl font-medium text-pink-500 transition-colors duration-500 md:text-3xl dark:text-pink-500"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1 }}
+        >
+          Link to my GitHub
+        </motion.a>
       </div>
     </div>
   );
