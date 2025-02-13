@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Imperial+Script&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --font-Imperial: "Imperial Script", "serif";
+  --font-Roboto: "Roboto", "serif";
+}
+
+/* Global */
+html {
+  @apply m-0 box-border p-0 font-Roboto;
+  user-select: none;
+}
+body {
+  @apply bg-white dark:bg-black;
+}
+
+.container {
+  @apply mx-auto w-full max-w-7xl p-5;
+}
+
+.border-image-conic {
+  border-image: conic-gradient(from 0deg, #ff0099 25%, #00d4ff 75%, #ff0099);
+  border-image-slice: 1;
+}
