@@ -29,7 +29,7 @@ const Skills: React.FC<MainProps> = ({ data }) => {
         {data.skills.skill.map((item, index) => (
           <motion.div
             key={item.id}
-            className="group flex flex-col items-center justify-center rounded-xl border-2 border-gray-300 p-6 transition-colors duration-500 hover:scale-105 hover:border-pink-500 dark:border-white/10 dark:bg-transparent"
+            className="group flex flex-col items-center justify-center rounded-xl border-2 border-gray-300 p-6 transition-colors duration-500  hover:border-pink-500 dark:border-white/10 dark:bg-transparent"
             initial="hidden"
             animate="visible"
             transition={{ delay: index * 0.2, ease: "easeInOut" }}

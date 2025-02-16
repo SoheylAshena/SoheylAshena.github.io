@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-function BackGround() {
+const BackGround = () => {
   return (
     <div className="fixed left-0 top-0 -z-50 h-screen w-full overflow-hidden bg-white transition-colors duration-500 dark:bg-gray-950">
       <motion.div
@@ -22,5 +22,5 @@ function BackGround() {
       />
     </div>
   );
-}
+};
 export default BackGround;

@@ -8,10 +8,7 @@ interface MainProps {
   data: Data;
 }
 
-const texts = [
-  "Hello, World!",
-  `I am Soheyl.`,
-];
+const texts = ["Hello, World!", `I am Soheyl.`];
 
 const Main: React.FC<MainProps> = ({ data }) => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
