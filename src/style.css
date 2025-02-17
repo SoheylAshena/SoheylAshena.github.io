@@ -6,9 +6,13 @@
   --font-Roboto: "Roboto", "serif";
 }
 
-/* Global */
+img {
+  user-select: none;
+  pointer-events: none;
+}
+
 html {
-  @apply m-0 box-border p-0 font-Roboto;
+  @apply font-Roboto m-0 box-border p-0;
   user-select: none;
 }
 body {

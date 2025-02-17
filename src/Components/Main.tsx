@@ -43,8 +43,9 @@ const Main: React.FC<MainProps> = ({ data }) => {
 
         {/* Profile Image */}
         <motion.img
-          src="pic.jpg"
+          src="Me.jpg"
           alt="Avatar"
+          id="profile-img"
           className="absolute z-10 rounded-full shadow-lg"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
