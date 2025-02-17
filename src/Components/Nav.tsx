@@ -4,10 +4,12 @@ import { CiMenuBurger } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
 import Icons from "./Icons";
 import { AppContext, AppContextType } from "../Context/Context";
+import { Link } from "react-router";
 
 const Nav: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { section, setSection } = useContext<AppContextType>(AppContext);
+  const { section, setSection, setLoading } =
+    useContext<AppContextType>(AppContext);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -15,6 +17,9 @@ const Nav: React.FC = () => {
 
   const handleLinkClick = (newSection: string) => {
     setSection(newSection);
+    if (section !== newSection && newSection !== "Contact") {
+      setLoading(true);
+    }
     if (window.innerWidth < 768) {
       toggleMobileMenu();
     }
@@ -24,20 +29,28 @@ const Nav: React.FC = () => {
     <header className="relative top-0 z-30 text-gray-800 dark:bg-transparent dark:text-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
         {/* Logo */}
-        <div className="relative z-20 flex font-Imperial text-5xl tracking-wider transition-colors duration-500 hover:text-pink-500 md:text-6xl dark:hover:text-yellow-400">
-          <a href="#home">
+        <div className="font-Imperial relative z-20 flex text-5xl tracking-wider transition-colors duration-500 hover:text-pink-500 md:text-6xl dark:hover:text-yellow-400">
+          <h1
+            onClick={() => {
+              if (document.documentElement.classList.contains("dark")) {
+                document.documentElement.classList.remove("dark");
+                return;
+              }
+              document.documentElement.classList.add("dark");
+            }}
+          >
             Soheyl
             <span className="text-pink-500 dark:text-yellow-400">.</span>
-          </a>
+          </h1>
           <div className="self-center text-3xl"></div>
         </div>
 
         {/* Desktop Menu */}
         <nav className="hidden space-x-12 text-2xl font-extrabold md:flex">
           {["Home", "Skills", "Work", "Contact"].map((navSection) => (
-            <a
+            <Link
               key={navSection}
-              href={`#${navSection.toLowerCase()}`}
+              to={`#${navSection.toLowerCase()}`}
               onClick={() => handleLinkClick(navSection)}
               className={`group relative transition-all duration-500 ${
                 section === navSection
@@ -47,11 +60,11 @@ const Nav: React.FC = () => {
             >
               {navSection}
               <span
-                className={`absolute left-0 top-full h-[3px] w-full origin-center scale-x-0 bg-pink-500 transition-transform duration-300 group-hover:scale-x-100 dark:bg-yellow-400 ${
+                className={`absolute top-full left-0 h-[3px] w-full origin-center scale-x-0 bg-pink-500 transition-transform duration-300 group-hover:scale-x-100 dark:bg-yellow-400 ${
                   section === navSection ? "scale-x-100" : ""
                 }`}
               ></span>
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -97,7 +110,7 @@ const Nav: React.FC = () => {
                   >
                     {navSection}
                   </motion.a>
-                )
+                ),
               )}
             </nav>
             <Icons />

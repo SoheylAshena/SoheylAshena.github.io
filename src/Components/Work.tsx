@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import { Data } from "../data";
 
 interface MainProps {

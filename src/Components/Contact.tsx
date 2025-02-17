@@ -20,7 +20,7 @@ const Contact = () => {
         "service_srvdg09",
         "template_564qdoo",
         form.current,
-        "aXwBSC3r1y427hVfk"
+        "aXwBSC3r1y427hVfk",
       )
       .then(() => {
         setIsSending(false);
@@ -64,7 +64,7 @@ const Contact = () => {
           <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="relative">
               <input
-                className="peer w-full rounded-xl  bg-white/80 p-4 text-gray-800 shadow-md outline-none backdrop-blur-md transition-all outline-0 duration-500 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:focus:ring-offset-gray-800"
+                className="peer w-full rounded-xl bg-white/80 p-4 text-gray-800 shadow-md outline-0 backdrop-blur-md transition-all duration-500 outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:focus:ring-offset-gray-800"
                 type="text"
                 name="from_name"
                 placeholder="Your Name"
@@ -74,7 +74,7 @@ const Contact = () => {
 
             <div className="relative">
               <input
-                className="peer w-full rounded-xl dark:border bg-white/80 p-4 text-gray-800 shadow-md outline-none backdrop-blur-md transition-all duration-500 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:focus:ring-offset-gray-800"
+                className="peer w-full rounded-xl bg-white/80 p-4 text-gray-800 shadow-md backdrop-blur-md transition-all duration-500 outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:focus:ring-offset-gray-800"
                 type="email"
                 name="from_email"
                 placeholder="Your E-mail"
@@ -86,7 +86,7 @@ const Contact = () => {
           {/* Message Field */}
           <div className="relative mb-6">
             <textarea
-              className="peer w-full rounded-xl dark:border bg-white/80 p-4 text-gray-800 shadow-md outline-none backdrop-blur-md transition-all duration-500 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:focus:ring-offset-gray-800"
+              className="peer w-full rounded-xl bg-white/80 p-4 text-gray-800 shadow-md backdrop-blur-md transition-all duration-500 outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:focus:ring-offset-gray-800"
               name="message"
               rows={5}
               placeholder="Tell me, I am all ears..."

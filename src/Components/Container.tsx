@@ -1,19 +1,19 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AppContext, AppContextType } from "../Context/Context";
 import { AnimatePresence, motion } from "framer-motion";
-import { useLocation } from "react-router";
 import Main from "./Main";
 import Skills from "./Skills";
 import Work from "./Work";
 import Contact from "./Contact";
 import data from "../data";
+import Loading from "./Loading";
 
 const Container: React.FC = () => {
-  const { section } = useContext<AppContextType>(AppContext);
-  const location = useLocation();
+  const { section, setLoading, loading } =
+    useContext<AppContextType>(AppContext);
   const pageVariants = {
     initial: { opacity: 0 },
-    in: { opacity: 1, x: 0 },
+    in: { opacity: 1 },
     out: { opacity: 0 },
   };
   const pageTransition = { duration: 0.5 };
@@ -34,13 +34,16 @@ const Container: React.FC = () => {
   };
   return (
     <AnimatePresence mode="wait">
+      {loading && <Loading />}
       <motion.div
-        key={location.pathname + section}
+        key={section}
         initial="initial"
-        whileInView="in"
+        animate="in"
         exit="out"
         variants={pageVariants}
         transition={pageTransition}
+        onLoad={() => setLoading(false)}
+        className={loading === false ? "block" : "hidden"}
       >
         {renderSection()}
       </motion.div>

@@ -96,6 +96,15 @@ React makes building complex and high-performance apps easier and is widely used
           desc: "Git is a version control system that helps developers track and manage changes to their codebase. It's widely used in collaborative development to ensure smooth coordination and history management.",
         },
       },
+      {
+        img: "ts.png",
+        name: "TypeScript",
+        id: "s-7",
+        desc: {
+          header: "TypeScript",
+          desc: "",
+        },
+      },
     ],
   },
 

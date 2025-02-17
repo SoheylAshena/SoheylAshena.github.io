@@ -58,9 +58,9 @@ const Main: React.FC<MainProps> = ({ data }) => {
         {isDesktop && <Icons />}
 
         {/* Content Section */}
-        <div className="text-center z-10 md:text-left">
+        <div className="z-10 text-center md:text-left">
           <motion.h1
-            className="mb-6  text-5xl font-extrabold text-pink-500 md:text-7xl"
+            className="mb-6 text-5xl font-extrabold text-pink-500 md:text-7xl"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
