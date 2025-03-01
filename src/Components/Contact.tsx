@@ -42,7 +42,7 @@ const Contact = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-6xl font-extrabold text-transparent dark:from-yellow-400 dark:to-yellow-600">
+        <h2 className="text-6xl font-extrabold text-pink-500 dark:from-yellow-400 dark:to-yellow-600">
           Get in Touch
         </h2>
         <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600 transition-colors duration-500 dark:text-gray-400">
@@ -54,87 +54,78 @@ const Contact = () => {
       <motion.form
         ref={form}
         onSubmit={sendEmail}
-        className="mx-auto max-w-2xl rounded-3xl border-4 border-transparent bg-gradient-to-tr from-purple-600 to-pink-500 bg-clip-border text-purple-900 shadow-xl dark:text-purple-300"
+        className="mx-auto max-w-2xl p-5 text-black dark:text-white"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="h-full w-full rounded-3xl bg-purple-50 p-6 shadow-lg backdrop-blur-lg transition-colors duration-500 md:p-12 dark:bg-gray-900">
-          {/* Name & Email Side by Side */}
-          <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="relative">
-              <input
-                className="peer w-full rounded-xl bg-white/80 p-4 text-gray-800 shadow-md outline-0 backdrop-blur-md transition-all duration-500 outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:focus:ring-offset-gray-800"
-                type="text"
-                name="from_name"
-                placeholder="Your Name"
-                required
-              />
-            </div>
+        {/* Name & Email Side by Side */}
+        <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <input
+            className="transition-color w-full rounded-xl p-4 ring-2 ring-pink-500 duration-500 outline-none focus:border-0 focus:ring-2 focus:ring-purple-500"
+            type="text"
+            name="from_name"
+            placeholder="Your Name"
+            required
+          />
 
-            <div className="relative">
-              <input
-                className="peer w-full rounded-xl bg-white/80 p-4 text-gray-800 shadow-md backdrop-blur-md transition-all duration-500 outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:focus:ring-offset-gray-800"
-                type="email"
-                name="from_email"
-                placeholder="Your E-mail"
-                required
-              />
-            </div>
-          </div>
-
-          {/* Message Field */}
-          <div className="relative mb-6">
-            <textarea
-              className="peer w-full rounded-xl bg-white/80 p-4 text-gray-800 shadow-md backdrop-blur-md transition-all duration-500 outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:focus:ring-offset-gray-800"
-              name="message"
-              rows={5}
-              placeholder="Tell me, I am all ears..."
-              required
-            ></textarea>
-          </div>
-
-          {/* Submit Button */}
-          <motion.button
-            className="w-full rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl disabled:cursor-not-allowed disabled:opacity-50"
-            type="submit"
-            disabled={isSending}
-            whileHover={{ scale: 1.05 }}
-          >
-            {isSending ? (
-              <span className="flex items-center justify-center">
-                <span className="mr-2 animate-spin text-white">⏳</span>{" "}
-                Sending...
-              </span>
-            ) : (
-              "Send Message"
-            )}
-          </motion.button>
-
-          {/* Success & Error Messages */}
-          {isSent && (
-            <motion.div
-              className="mt-6 text-center text-lg text-green-400"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="mr-2 text-2xl">✅</span>Your message was sent
-              successfully!
-            </motion.div>
-          )}
-          {error && (
-            <motion.div
-              className="mt-6 text-center text-lg text-red-500"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="mr-2 text-2xl">❌</span>
-              {error}
-            </motion.div>
-          )}
+          <input
+            className="transition-color w-full rounded-xl p-4 ring-2 ring-pink-500 duration-500 outline-none focus:border-0 focus:ring-2 focus:ring-purple-500"
+            type="email"
+            name="from_email"
+            placeholder="Your E-mail"
+            required
+          />
         </div>
+
+        <textarea
+          className="transition-color mb-6 w-full rounded-xl p-4 ring-2 ring-pink-500 duration-500 outline-none focus:border-0 focus:ring-2 focus:ring-purple-500"
+          name="message"
+          rows={5}
+          placeholder="Tell me, I am all ears..."
+          required
+        ></textarea>
+
+        {/* Submit Button */}
+        <motion.button
+          className="w-full rounded-xl bg-gradient-to-r from-pink-500 to-pink-700 px-6 py-3 text-lg font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
+          type="submit"
+          disabled={isSending}
+          whileHover={{ scale: 0.99 }}
+        >
+          {isSending ? (
+            <span className="`items-center flex justify-center">
+              <span className="mr-2 animate-spin text-white">⏳</span>
+              Sending...
+            </span>
+          ) : (
+            "Send Message"
+          )}
+        </motion.button>
+
+        {/* Success & Error Messages */}
+        {isSent && (
+          <motion.div
+            className="mt-6 text-center text-lg text-green-400"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="mr-2 text-2xl">✅</span>Your message was sent
+            successfully!
+          </motion.div>
+        )}
+        {error && (
+          <motion.div
+            className="mt-6 text-center text-lg text-red-500"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="mr-2 text-2xl">❌</span>
+            {error}
+          </motion.div>
+        )}
       </motion.form>
     </div>
   );

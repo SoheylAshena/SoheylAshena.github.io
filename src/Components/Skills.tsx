@@ -16,7 +16,7 @@ const Skills: React.FC<MainProps> = ({ data }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-6xl font-bold text-transparent dark:from-yellow-400 dark:to-yellow-600">
+        <h2 className="text-6xl font-bold text-pink-500 dark:from-yellow-400 dark:to-yellow-600">
           My Skills
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600 transition-colors duration-500 dark:text-gray-400">

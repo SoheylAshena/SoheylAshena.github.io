@@ -11,7 +11,7 @@ const Work: React.FC<MainProps> = (props) => {
   const project = data.projects.project.map((proj, index) => (
     <motion.div
       key={proj.id}
-      className="group relative overflow-hidden rounded-xl border-4 border-transparent bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-border shadow-lg"
+      className="group relative overflow-hidden rounded-xl border-4 border-pink-500 shadow-lg"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.2, ease: "easeInOut" }}
@@ -41,11 +41,9 @@ const Work: React.FC<MainProps> = (props) => {
           href={proj.page}
           className="flex items-center space-x-2 text-sm font-medium text-blue-400 transition-transform duration-300 hover:scale-110"
         >
-          <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-            View Live
-          </span>
+          <span className="text-pink-500">View Live</span>
           <motion.span
-            className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text font-bold text-transparent"
+            className="text-pink-500"
             initial={{ x: -5 }}
             animate={{ x: [0, -5, 0] }}
             transition={{ repeat: Infinity, duration: 0.5, ease: "easeInOut" }}
@@ -55,7 +53,7 @@ const Work: React.FC<MainProps> = (props) => {
         </a>
         <a
           href={proj.source}
-          className="flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-sm font-medium text-transparent transition-transform duration-300 hover:scale-110 hover:underline"
+          className="flex items-center space-x-2 text-sm font-medium text-pink-500 transition-transform duration-300 hover:scale-110 hover:underline"
         >
           <span>Source Code</span>
         </a>
@@ -72,7 +70,7 @@ const Work: React.FC<MainProps> = (props) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-6xl font-extrabold tracking-wide text-transparent dark:from-yellow-400 dark:to-yellow-600">
+        <h2 className="text-6xl font-extrabold tracking-wide text-pink-500 dark:from-yellow-400 dark:to-yellow-600">
           Featured Projects
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600 transition-colors duration-500 dark:text-gray-400">
