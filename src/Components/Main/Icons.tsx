@@ -5,7 +5,7 @@ import { IoLogoLinkedin } from "react-icons/io5";
 const Icons = () => {
   return (
     <motion.div
-      className="flex justify-center gap-5 md:flex-col"
+      className="hidden justify-center gap-5 md:flex md:flex-col"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 1.1 }}

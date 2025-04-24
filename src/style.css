@@ -20,7 +20,7 @@ body {
 }
 
 .container {
-  @apply mx-auto w-full max-w-7xl p-5;
+  @apply mx-auto min-h-screen w-full max-w-7xl p-5 pt-10;
 }
 
 .border-image-conic {
