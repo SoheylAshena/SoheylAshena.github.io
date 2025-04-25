@@ -9,7 +9,7 @@ const App = () => {
   return (
     <>
       <Background />
-      <Main data={data} />
+      <Main />
       <Skills data={data} />
       <Work data={data} />
       <Contact />
