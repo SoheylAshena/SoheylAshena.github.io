@@ -1,12 +1,9 @@
-import { DataInterface } from "../../data";
 import SectionTitle from "../SectionTitle";
 import SkillCard from "./SkillCard";
 
-interface PropsInterface {
-  data: DataInterface;
-}
+import data from "../../data";
 
-const Skills = ({ data }: PropsInterface) => {
+const Skills = () => {
   return (
     <div className="container" id="skills">
       <SectionTitle

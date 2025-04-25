@@ -1,12 +1,9 @@
-import { DataInterface } from "../../data";
 import ProjectCard from "./ProjectCard";
 import SectionTitle from "../SectionTitle";
 
-interface PropsInterface {
-  data: DataInterface;
-}
+import data from "../../data";
 
-const Work = ({ data }: PropsInterface) => {
+const Work = () => {
   return (
     <div className="container px-6 py-20" id="work">
       {/* Section Header */}
